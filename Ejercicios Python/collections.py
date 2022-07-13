@@ -318,4 +318,4 @@ print(resultado)
 # ejemplo factorial de un numero
 """resultado=math.factorial(7)
 print(resultado)"""
-# continuacion..
+# continuacion.....
