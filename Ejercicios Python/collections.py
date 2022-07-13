@@ -1,5 +1,6 @@
 
 """**********************************************************************Modulos de collections*********************************************"""
+import re
 import datetime
 from datetime import datetime
 import os
@@ -9,7 +10,7 @@ from collections import defaultdict
 from collections import namedtuple
 import collections
 import math
-from numpy import mat
+
 import send2trash
 import time
 import timeit
@@ -318,4 +319,115 @@ print(resultado)
 # ejemplo factorial de un numero
 """resultado=math.factorial(7)
 print(resultado)"""
-# continuacion.....
+
+"""***********************************************************************Modulo re*********************************************************************************"""
+# Ejemplo 1)
+"""texto = "Si necesitas ayuda llama al siguiente numero (601)-306-4471 opcion 3 de la linea telefonica "
+patron = "necesitas"
+
+# search()--> buscar
+busqueda = re.search(patron, texto)
+# span()--> ubicacion de donde esta la palabra "necesitas", segun los indices , promedia un rango(inicio,hasta)
+print(busqueda.span())
+# star() ---> ubicacion del inicio de esa palabra
+print(busqueda.start())
+# end( )---> ubicacion del final de esa palabra
+print(busqueda.end())
+"""
+# Ejemplo 2)
+"""texto = "Si necesitas ayuda llama al siguiente numero (601)-306-4471 opcion 3 de la linea telefonica "
+patron = "necesitas"
+
+# findall--> buscar cuantas veces se repite esa palabra
+busqueda = re.findall(patron, texto)
+# para buscar esa palbra
+print(busqueda)
+# para buscar cuantas veces se repite
+print(len(busqueda))
+"""
+# Ejemplo 3)
+"""texto = "Llama al 317-470-1221 ya mismo"
+patron = r'\d\d\d-\d\d\d-\d\d\d\d'
+resultado = re.search(patron, texto)
+
+print(resultado.group())"""
+
+# Ejemplo 4
+"""texto = "Llama al 317-470-1221 ya mismo"
+patron = re.compile(r'(\d{3})-(\d{3})-(\d{4})')
+resultado = re.search(patron, texto)
+#para imprimir por indices nuestro numero telefonico
+print(resultado.group(2))
+"""
+# Ejemplo 5
+"""# \D ---> para decirle a python que nos genere una clave identica con cierto numero de caracteres de tipo string ""
+# \w ---> para decirle a pytthon que nos genere una clave identica con cierto nuero de caracteros de tipo int
+clave = input("ingrese su clave : ")
+patron = r'\D{2}\w{5}'
+chequear = re.search(patron, clave)
+print(chequear)
+"""
+# Ejemplo 6
+"""texto = "No atendemos los lunes por la tarde "
+buscar = re.search(r'lunes|martes', texto)
+print(buscar)"""
+
+# Ejemplo 7
+"""texto = "No atendemos los lunes por la tarde "
+buscar = re.search(r'demos...|martes', texto)
+print(buscar)"""
+
+# Ejemplo 8
+"""# separar nuestro texto por medio de cadena de caracteres
+#re.findall()-->devuelve una lista que contiene todos los hallazgos del patrón
+texto = "no atendemos los lunes por la mañana "
+buscar = re.findall(r'[^\s]+', texto)
+print(buscar)"""
+
+# Ejemplo 9
+"""# para verificar si un email tiene @ y .com
+
+# \w --> Para caracteres alfanumericos como por ejemplo el '@'
+# \.  --> como por ejemplo un caracteres cualquiera
+
+
+def verificaremail(email):
+    patron = r'@\w+\.com'
+    chequear = re.search(patron, email)
+    if chequear:
+        print("ok")
+    else:
+        print("invalido")
+
+
+verificaremail("rodolfomartiens123@gmail.com")
+"""
+
+# Ejemplo 10
+"""def verificar_saludo(frase):
+    patron = 'Hola'
+    chequear = re.findall(patron, frase)
+    if chequear:
+        print("Ok")
+    else:
+        print("No has saludado")
+
+
+verificar_saludo("Buenas")
+"""
+
+# Ejemplo 11
+"""# \w --> caracteres alfanumericos
+# \d --> caracteres numericos
+
+
+def verificar_cp(cp):
+    patron = r'\w{2}\d{4}'
+    chequear = re.search(patron, cp)
+    if chequear:
+        print("Ok")
+    else:
+        print("codigo postal invalido")
+
+
+verificar_cp("xx1234")"""
