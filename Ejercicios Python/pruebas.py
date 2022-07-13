@@ -1,5 +1,7 @@
 import itertools
 
+# creamos las funciones
+
 
 def Turnos_Papeleria():
     for x in itertools.count(1):
