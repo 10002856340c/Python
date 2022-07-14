@@ -28,3 +28,9 @@ archivo_destino = 'todocomprimido'
 # 3) con la funcion make_archive('nombre del archivo','extension','ruta donde esta el archovo')
 shutil.make_archive(archivo_destino, 'zip', carpeta_origen)
 """
+try:
+    zip_abierto = zipfile.ZipFile('Proyecto9.zip', 'r')
+    zip_abierto.extractall()
+    print("Se descomprimio con exito")
+except:
+    print("error")
