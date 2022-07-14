@@ -12,7 +12,7 @@ mi_zip.write('main2.txt')
 # 3) cerramos la carpeta
 mi_zip.close()"""
 
-# 2 Ejemplo)Descomprimir un Archivo
+# 2 Ejemplo)Descomprimir un Archivo...
 
 """zip_abierto = zipfile.ZipFile('ArchivoComprimido.zip', 'r')
 zip_abierto.extractall()
